@@ -1,0 +1,10 @@
+create table player(id int primary key not null unique auto_increment, playerName varchar(30) not null, skillLevel varchar(20) not null, emailId varchar(30) not null unique, tshirtSize varchar(5) not null);
+create table team(id int primary key not null unique auto_increment, teamName varchar(30) unique not null, teamCaptain varchar(30) not null);
+create table auction(id int not null unique primary key auto_increment, playerId int unique not null, basePrice int not null, soldPrice int not null, teamId int not null, chosenTeam varchar(10) not null, foreign key(playerId) references player(id), foreign key(teamId) references team(id));
+select * from player;
+insert into team values(1,"TIGERS", "Sagar");
+insert into team values(2,"WOLF", "Shah");
+insert into team values(3,"SPIES", "Sundeep");
+select * from team;
+select * from auction;
+select * from player;

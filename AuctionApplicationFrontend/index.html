@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>Badminton Auction Application</title>
+    <link rel="icon" type="images/x-icon" href="./images/BadmintonnewLogo.png" style="height: 100px;" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--New Header -->
+    <header>
+      <div class="row header">
+          <div class="col-sm-6 logo-header" onclick="window.location.href='index.html'">
+              <img src="./images/BadmintonnewLogo.png" alt="logo">
+              <span>WBL</span>
+          </div>
+          <div class="col-sm-6 nav-links">
+              <ul>
+                  <li><a href="./player.html">PLAYERS</a></li>
+                  <li><a href="./auction.html">AUCTION</a></li>
+                  <li><a href="./teamPlayers.html">TEAMS</a></li>
+                  <li><a href="./register.html">REGISTER</a></li>
+              </ul>
+          </div>
+        </div>
+  </header>
+    <div style="margin-left: 0; margin-right: 0; margin-top: 10%;" class="welcome-msg row">
+      <h3 style="text-align: left; padding-left: 16px; text-transform: uppercase;">
+        Welcome to wbl
+      </h3>
+    </div>
+
+      <section class="main-content">
+             <!-- Date Card -->
+             <div style="margin-right: 0; margin-left: 0;" class="row">   
+              <div  class="col-sm-10">          
+              <div class="date-card">
+                <div class="registration"> 
+                  <h1 id="headline">REGISTRATION ENDS IN</h1> 
+                  <div id="countdown"> 
+                      <ul> 
+                          <li><span id="days"></span>days</li> 
+                          <li><span id="hours"></span>Hours</li> 
+                          <li><span id="minutes"></span>Minutes</li> 
+                          <li><span id="seconds"></span>Seconds</li> 
+                      </ul> 
+                  </div> 
+                  <div id="content" class="emoji"> 
+                      <span></span> 
+                      <span></span> 
+                      <span></span> 
+                  </div> 
+              </div>
+              <div class="date">
+                <h2>League Schedule</h2>
+                <div class="leaguedate">
+                <h3><p style="margin-bottom: 3px;">starts on</p><span style="font-size: 0.7em;">30-march-2023</span></h3>
+                <h3 style="margin-left: 10%;"><p style="margin-bottom: 3px;">ends on</p><span style="font-size: 0.7em;">31-march-2023</span></h3>
+                </div>
+              </div>
+              <!-- <div class="register-btn">
+                <span>Click here to</span><button type="submit"><a href="./register.html"> REGISTER</a></button>
+              </div> -->
+              </div>
+            </div>
+            <!-- Category Card -->
+            <div class="col-sm-2">
+               <div class="categories">
+               <div class="card">
+                <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Categories</h2>
+                <h4>Mens:</h4>
+                  <ul>
+                    <li style="margin-left: 15px;">Singles</li>
+                    <li style="margin-left: 15px;">Doubles</li>
+                  </ul>
+                  <h4 style="margin-top: 20px;">Womens:</h4>
+                  <ul>
+                    <li style="margin-left: 15px;">Singles</li>
+                    <li style="margin-left: 15px;">Doubles</li>
+                    <!-- <li >Mixed Doubles</li> -->
+                  </ul>
+               </div>
+             </div>
+          </div>
+        </div>
+        <div style="margin-left: 0; margin-right: 0;" class="row">
+          <div class="quote"><h3 style="font-weight: bolder;">"This Time <br>Let your Racket <br>Do The Talking!!"</h3></div>
+        </div>
+        <!-- Countdown -->
+      </section>
+      <footer>
+        <div class="footer">
+          <div>
+           <p> &copy; 2023 Copyright:Jagan Chowhaan</p>
+          </div>
+        </div>
+      </footer>
+      <script src="script.js"></script>
+      <!-- Registration countdown script -->
+      <script>
+        (function () {
+          const second = 1000,
+          minute = second * 60,
+          hour = minute * 60,
+          day = hour * 24;
+          let today = new Date(),
+          dd = String(today.getDate()).padStart(2, "0"),
+          mm = String(today.getMonth() + 1).padStart(2, "0"),
+          yyyy = today.getFullYear(),
+          nextYear = yyyy + 1,
+          dayMonth = "03/25/",
+          registrationEnds = dayMonth + yyyy;
+          today = mm + "/" + dd + "/" + yyyy;
+          if (today > registrationEnds) {
+          registrationEnds = dayMonth + nextYear;
+          }
+          //end
+          const countDown = new Date(registrationEnds).getTime(),
+          x = setInterval(function() {
+          const now = new Date().getTime(),
+          distance = countDown - now;
+          document.getElementById("days").innerText = Math.floor(distance / (day)),
+          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+          //do something later when date is reached
+          if (distance < 0) {
+          document.getElementById("headline").innerText = "Registrations are closed!";
+          document.getElementById("countdown").style.display = "none";
+          document.getElementById("content").style.display = "block";
+          clearInterval(x);
+          }
+          //seconds
+          }, 0)
+          }());
+      </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

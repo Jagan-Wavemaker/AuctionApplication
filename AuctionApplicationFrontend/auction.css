@@ -1,0 +1,223 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: rgb(175, 208, 238);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+header{
+  background-color: rgb(133, 133, 133);
+}
+.row.header{
+  margin: 0;
+}
+.logo-header{
+  margin-top: 0.58%;
+  margin-bottom: 0.55%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.col-sm-6.logo-header img{
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50px;
+  height: 50px;
+  background-color: black;
+}
+.col-sm-6.logo-header span{
+  cursor: pointer;
+  font-weight: bolder;
+  color: #048aff;
+  text-align: center;
+  font-size: 22px;
+}
+/* header links and style */
+.col-sm-6.nav-links{
+  margin-top: 0.8%;
+}
+.col-sm-6.nav-links ul{
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: end;
+}
+.col-sm-6.nav-links ul li{
+  list-style: none;
+  align-items: end;
+
+}
+.col-sm-6.nav-links ul li a{
+  text-decoration: none;
+  color: white;
+  margin: 10px;
+}
+.nav-links li {
+  border-radius: 4px;
+  background-color: #5ca1e1;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  width: 110px;
+  transition: all .5s;
+  cursor: pointer;
+  margin: 2px;
+}
+.nav-links li a {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.nav-links li a:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: -8%;
+  right: -15px;
+  transition: 0.5s;
+}
+
+.nav-links li:hover a {
+  padding-right: 25px;
+}
+
+.nav-links li:hover a:after {
+  opacity: 1;
+  right: 0;
+}
+#playerDetails{
+    font-size: 20px;
+    margin-left: 2%;
+    margin-top: 2%;
+    border: 1px solid transparent;
+    width: max-content;
+    border-radius: 4px;
+    padding: 10px;
+    display: none;
+    background-color: rgb(111, 195, 247);
+}
+#playerDetails.show{
+    display: block;
+}
+#player-img{
+  height: 80px;
+  margin-left: 59px;
+}
+.random{
+    font-weight: bold;
+}
+.card-header.form-group{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+button{
+    background: rgb(7, 7, 121);
+    background: linear-gradient(140deg, rgba(30,144,255,1) 10%, rgb(115, 48, 188) 80%);
+    padding: 9px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-left: 2%;
+    border: none;
+
+}
+button:active {
+    transform: translate(0em, 0.2em);
+   }
+
+.form-group .radio-inline{
+    display: inline;
+  }
+  .card {
+    width: 350px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(3, 12, 13, 0.5);
+    overflow: hidden;
+    margin-top: 1%;
+    margin-left: 36.3%;
+  }
+  
+  .card-header {
+    background-color: #333;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .card-header .text-header {
+    margin: 0;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .form-group label{
+    display: block;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 1px;
+  }
+  #home{
+    margin-left: 15px;
+    float: left;
+    padding: 5px;
+    border-radius: 1.5px;
+    background-color: #0d96eb;
+    color: #333;
+    text-decoration: none;
+  }
+  #teams{
+    padding: 5px;
+    border-radius: 1.5px;
+    margin-bottom: 20px;
+    margin-left: 2px;
+    float: left;
+    background-color: #0d96eb;
+    color: #333;
+    text-decoration: none;
+  }
+  .btn{
+    outline: none !important;
+    padding: 10px 15px;
+    font-size: 12px;
+    margin-left: 40%;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer
+  }
+  .btn:hover {
+    background-color: #0d96eb;
+    color: #ece6e6;
+  }
+  /* teams display */
+section{
+    margin-top: 20px;
+}
+.team-details h4{
+    text-transform: uppercase;
+    text-align: center;
+}
+.team-details img{
+    height: 180px;
+    align-items: center;
+    margin-left: 30%;
+}
+#text{
+    margin-left: 2%;
+    text-decoration: underline;
+}
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}

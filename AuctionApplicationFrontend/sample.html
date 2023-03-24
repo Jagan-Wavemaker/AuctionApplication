@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="prev-btn" disabled>Previous</button>
+        <button id="next-btn">Next</button>
+      </div>
+      <div>
+        <h2 id="player-name"></h2>
+        <p id="player-stats"></p>
+        <button id="bid-btn" disabled>Fix Bid</button>
+      </div>
+    <script>let players = [];
+        let currentPlayerIndex = 0;
+        
+        function getPlayers() {
+          // Assuming that this API call returns an array of player objects
+          // with properties like 'name' and 'stats'
+          // and that the response is in JSON format
+          fetch('http://localhost:8080/badmintonAuction/player/display')
+            .then(response => response.json())
+            .then(data => {
+              players = data;
+              showCurrentPlayer();
+            })
+            .catch(error => console.log(error));
+        }
+        console.log(players);
+        
+        function showCurrentPlayer() {
+          const currentPlayer = players[currentPlayerIndex];
+          const playerNameElement = document.getElementById('player-name');
+          const playerStatsElement = document.getElementById('player-stats');
+          const bidBtn = document.getElementById('bid-btn');
+          playerNameElement.textContent = currentPlayer.name;
+          playerStatsElement.textContent = currentPlayer.stats;
+          if (currentPlayer.soldOut) {
+            bidBtn.disabled = true;
+            alert('Player sold out!');
+          } else {
+            bidBtn.disabled = false;
+          }
+        }
+        
+        function prevPlayer() {
+          currentPlayerIndex--;
+          if (currentPlayerIndex <= 0) {
+            document.getElementById('prev-btn').disabled = true;
+          }
+          document.getElementById('next-btn').disabled = false;
+          showCurrentPlayer();
+        }
+        
+        function nextPlayer() {
+          currentPlayerIndex++;
+          if (currentPlayerIndex >= players.length - 1) {
+            document.getElementById('next-btn').disabled = true;
+          }
+          document.getElementById('prev-btn').disabled = false;
+          showCurrentPlayer();
+        }
+        
+        function fixBid() {
+          players[currentPlayerIndex].soldOut = true;
+          document.getElementById('bid-btn').disabled = true;
+          alert('Player sold out!');
+          // Save the updated player list to local storage
+          localStorage.setItem('players', JSON.stringify(players));
+        }
+        
+        // Retrieve players from API or local storage if available
+        const storedPlayers = localStorage.getItem('players');
+        if (storedPlayers) {
+          players = JSON.parse(storedPlayers);
+          showCurrentPlayer();
+        } else {
+          getPlayers();
+        }
+        
+        // Attach event listeners to buttons
+        document.getElementById('prev-btn').addEventListener('click', prevPlayer);
+        document.getElementById('next-btn').addEventListener('click', nextPlayer);
+        document.getElementById('bid-btn').addEventListener('click', fixBid);
+        </script>      
+</body>
+</html>

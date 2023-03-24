@@ -1,0 +1,252 @@
+/* new styles of header */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("./images/BadmintonBG.jpg");
+  background-repeat: no-repeat, center;
+  background-size: 100% 100%;
+  object-fit: fill;
+  /* overflow-x: hidden; */
+  width: 100%;
+  height: 100%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+header{
+  background-color: rgb(133, 133, 133);
+}
+.row.header{
+  margin: 0;
+}
+.logo-header{
+  margin-top: 0.58%;
+  margin-bottom: 0.55%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.col-sm-6.logo-header img{
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50px;
+  height: 50px;
+  background-color: black;
+}
+.col-sm-6.logo-header span{
+  cursor: pointer;
+  font-weight: bolder;
+  /* color: rgb(16, 38, 230); */
+  color: #048aff;
+  text-align: center;
+  font-size: 22px;
+}
+/* header links and style */
+.col-sm-6.nav-links{
+  margin-top: 0.8%;
+}
+.col-sm-6.nav-links ul{
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: end;
+}
+.col-sm-6.nav-links ul li{
+  list-style: none;
+  align-items: end;
+
+}
+.col-sm-6.nav-links ul li a{
+  text-decoration: none;
+  color: white;
+  margin: 10px;
+}
+.nav-links li {
+  border-radius: 4px;
+  background-color: #5ca1e1;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  width: 110px;
+  transition: all .5s;
+  cursor: pointer;
+  margin: 2px;
+}
+.nav-links li a {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.nav-links li a:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: -8%;
+  right: -15px;
+  transition: 0.5s;
+}
+
+.nav-links li:hover a {
+  padding-right: 25px;
+}
+
+.nav-links li:hover a:after {
+  opacity: 1;
+  right: 0;
+}
+/* welcome message */
+.welcome-msg.row{
+  color: #048aff;
+}
+.animate-character{
+  margin-left: 10px;
+  position: inherit;
+  text-transform: uppercase;
+  background-image: linear-gradient(#491ee6 29%, #ff1361 67%, #182272 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bolder;
+  font-size: 40px;
+  margin-top: 0.7%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/* css for registration card and countdown*/
+.date-card{
+    width: 50%;
+    background-color: #0c0d0d;
+    border-radius: 7px;
+    box-shadow:1px 1px 1px 1px rgb(3, 3, 109);
+}
+.registration{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; 
+}
+.registration h1 {
+  color: #c9c9c9; 
+  font-weight: normal;
+  letter-spacing: .125rem; 
+  text-transform: uppercase; 
+  text-align: center;
+  font-size: 30px; 
+  padding-top: 10px;
+  margin-bottom: -7px;
+  }
+.registration li { 
+  display: inline-block; 
+  font-size: 1em; 
+  list-style-type: none; 
+  padding: 1em; 
+  text-transform: uppercase; 
+}
+#countdown ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration li span { 
+  display: block; 
+  font-size: 4.5rem;
+  color: #275aa7;
+}
+.registration .emoji { 
+  display: none;
+  padding: 1rem; 
+  }
+.registration.emoji { 
+  display: none;
+  padding: 1rem; 
+  }
+  .date h2{
+    color: #c9c9c9; 
+    font-weight: normal;
+    letter-spacing: .125rem; 
+    text-transform: uppercase; 
+    text-align: center;
+
+  }
+  .leaguedate{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .leaguedate h3{
+    border: 0.5px solid;
+    padding: 10px;
+    color: #275aa7;
+    border-radius: 8px;
+    text-transform: uppercase;
+    /* background: linear-gradient(135deg, #201d4f 5%, #c46116 95%); */
+    
+  }
+  .leaguedate h3 p{
+    font-size: 0.6em;
+  }
+  .register-btn span{
+    margin-left: 174px; 
+    color: white;
+  }
+  .register-btn{
+    padding: 10px;
+  }
+  .register-btn a{
+    color: white;
+  }
+  .register-btn button{
+    padding: 5px;
+    border-radius: 4px;
+    border-color: transparent;
+    background-color: #048aff;
+    margin-left: 5px;
+    font-weight: bolder;
+  }
+
+/* css for category card*/
+.card {
+  /* padding: 10px; */
+  width: 150px;
+  padding-left: 36px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+.card h2{
+  color: white;
+}
+.card h4{
+  color: rgb(247, 142, 5);
+}
+.categories p{
+  color: white;
+  font-size: 20px;
+}
+.card ul, li{
+  color: white;
+  list-style: none;
+}
+/* Quote */
+.quote h3{
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 16%;
+  text-shadow: 3px 3px 20px #ebdce4d4, -2px 1px 30px #d6ced2de;
+  color: black;
+}
+footer{
+  padding: 5px;
+  background-color: #9e9494;
+}
+.footer p{
+  margin: 0 !important;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+}

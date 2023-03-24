@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button id="previous-btn">Previous</button>
+    <button id="next-btn">Next</button>
+  </div>
+  <!-- Displaying details and buttons -->
+  <div>
+    <span>Player ID: </span><span id="player-id"></span><br>
+    <span>Player Name: </span><span id="player-name"></span><br>
+    <span>Player Skill Level: </span><span id="player-skill"></span><br>
+    <button id="bid-btn" disabled>Bid</button>
+  </div>
+  <script>
+const apiUrl = 'http://localhost:8080/badmintonAuction/player/display';
+
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(players => {
+    const playerArray = [];
+
+    players.forEach(player => {
+      playerArray.push({
+        playerid: player.playerid,
+       playername: player.playername,
+       skilllevel: player.skilllevel
+      });
+    });
+    playersList=playerArray;
+  })
+  .catch(error => {
+    console.error('Error fetching players:', error);
+  });
+let currentIndex = -1;
+
+const previousBtn = document.getElementById('previous-btn');
+const nextBtn = document.getElementById('next-btn');
+const playerId = document.getElementById('player-id');
+const playerName = document.getElementById('player-name');
+const playerSkill = document.getElementById('player-skill');
+const bidBtn = document.getElementById('bid-btn');
+
+function updatePlayerDetails() {
+  playerId.textContent = playersList[currentIndex].playerid;
+  playerName.textContent = playersList[currentIndex].playername;
+  playerSkill.textContent = playersList[currentIndex].skilllevel;
+  if (playersList[currentIndex].sold) {
+    bidBtn.disabled = true;
+  } else {
+    bidBtn.disabled = false;
+  }
+}
+
+previousBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updatePlayerDetails();
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < playersList.length - 1) {
+    currentIndex++;
+    updatePlayerDetails();
+  }
+});
+
+bidBtn.addEventListener('click', () => {
+  playersList[currentIndex].sold = true;
+  bidBtn.disabled = true;
+});
+</script>  
+</body>
+</html>
